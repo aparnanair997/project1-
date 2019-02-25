@@ -1,0 +1,62 @@
+SELECT * FROM`bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+Where country="CANADA"
+
+SELECT count(distinct(country))FROM`bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+
+
+SELECT COUNT(DISTINCT(id)) as Number_of_Earthquakes,STRING_AGG(DISTINCT(country)) 
+FROM`bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+where country="INDIA"
+
+
+SELECT COUNT ((id)) as Number_of_Earthquakes,STRING_AGG(DISTINCT(country)) 
+FROM`bigquery-public-data.noaa_significant_earthquakes.earthquak
+
+ 
+SELECT   eq_primary as Number_of_Earthquakes 
+  ,COUNT(DISTINCT(id)) as Earthquake_Magnitude
+  ,STRING_AGG(DISTINCT(country)) as Countries
+FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+GROUP BY eq_primary
+ORDER BY 1 desc
+LIMIT 1
+
+
+SELECT  eq_primary as Earthquake_Magnitude ,COUNT(DISTINCT(id)) as Number_of_Earthquakes,STRING_AGG(DISTINCT(country)) as Countries
+FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+GROUP BY eq_primary
+ORDER BY 1 desc
+LIMIT 10
+
+SELECT
+year
+,country
+,Location_name
+,total_deaths
+FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+where country = "INDIA"
+ORDER BY year desc
+LIMIT 10
+ 
+SELECT  eq_primary as Earthquake_Magnitude ,COUNT(DISTINCT(id)) as Number_of_Earthquakes,STRING_AGG(DISTINCT(country)) as Countries
+FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+GROUP BY eq_primary
+ORDER BY 1 asc
+LIMIT 6
+
+SELECT 
+  year
+  ,country
+  ,location_name
+  ,total_deaths
+FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+ORDER BY year desc
+LIMIT 10	
+
+SELECT 
+  year
+  ,country
+  ,location_name
+FROM `bigquery-public-data.noaa_significant_earthquakes.earthquakes`
+ORDER BY year
+LIMIT 10
